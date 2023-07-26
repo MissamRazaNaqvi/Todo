@@ -11,7 +11,7 @@ import Protected from './components/protected';
 import SignUp from './components/signup';
 import style from './assets/css/app.module.css'
 function App() {
-  let { isSetLogin, verify } = useSelector(state => state.todoList)
+  let { isSetLogin, loading, verify } = useSelector(state => state.todoList)
   const dispatch = useDispatch()
   if (verify.success) {
     dispatch(setlogin(true))
@@ -28,17 +28,25 @@ function App() {
         <BrowserRouter>
           <Header />
           <Toaster toastOptions={{ style: { borderRadius: '8px', background: '#333', color: '#fff', } }} />
-          <Routes>
-            <Route path='*' element={<h1>404 not found</h1>} />
-            {!isSetLogin ? <Route path='/' element={<Home />} /> :
-              <Route path='/' element={
-                <Protected>
-                  <MainCmp />
-                </Protected>
-              } />
-            }
-            <Route path='/signup' element={<SignUp />} />
-          </Routes>
+          {loading ? <RotatingLines
+            strokeColor="grey"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="96"
+            visible={true}
+          /> :
+            <Routes>
+              <Route path='*' element={<h1>404 not found</h1>} />
+              {!isSetLogin ? <Route path='/' element={<Home />} /> :
+                <Route path='/' element={
+                  <Protected>
+                    <MainCmp />
+                  </Protected>
+                } />
+              }
+              <Route path='/signup' element={<SignUp />} />
+            </Routes>
+          }
         </BrowserRouter>
       </div>
     </div>
