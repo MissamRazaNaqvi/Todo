@@ -1,0 +1,77 @@
+.formContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+    position: fixed;
+    z-index: 1;
+    background: #000000b8;
+    padding: 25px 15px;
+    border-radius: 15px;
+    height: 40vh;
+    color: white;
+    top: 50px;
+}
+
+.registrationBtn {
+    display: flex;
+    justify-content: space-between;
+    width: 86%;
+}
+
+.navBar {}
+
+.login {
+    display: flex;
+    justify-content: center;
+}
+
+.loginBtn {
+    width: 48%;
+    border: none;
+    color: white;
+    background: #0078ff;
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.cancelBtn {
+    width: 48%;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.loginUser {
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.loginPass {
+    margin: 15px 0px;
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.linkStyle {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.firstname {
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.err {
+    color: red;
+    padding: 5px 0px;
+}
