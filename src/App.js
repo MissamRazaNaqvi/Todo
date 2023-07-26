@@ -27,14 +27,15 @@ function App() {
       <div className={style}>
         <BrowserRouter>
           <Header />
-          <Toaster toastOptions={{ style: { borderRadius: '8px', background: '#333', color: '#fff', } }} />
+          <Toaster toastOptions={{ style: { borderRadius: '8px', background: '#333', color: '#fff', } }} />                     
           <Routes>
             <Route path='*' element={<h1>404 not found</h1>} />
-            {isSetLogin ? <Route path='/' element={
-              <Protected>
-                <MainCmp />
-              </Protected>} /> :
-              <Route path='/' element={<Home />} />
+            {!isSetLogin ? <Route path='/' element={<Home />} /> :
+              <Route path='/' element={
+                <Protected>
+                  <MainCmp />
+                </Protected>
+              } />
             }
             <Route path='/signup' element={<SignUp />} />
           </Routes>
