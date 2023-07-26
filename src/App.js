@@ -28,25 +28,16 @@ function App() {
         <BrowserRouter>
           <Header />
           <Toaster toastOptions={{ style: { borderRadius: '8px', background: '#333', color: '#fff', } }} />
-          {loading ? <RotatingLines
-            strokeColor="grey"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="96"
-            visible={true}
-          /> :
-            <Routes>
-              <Route path='*' element={<h1>404 not found</h1>} />
-              {!isSetLogin ? <Route path='/' element={<Home />} /> :
-                <Route path='/' element={
-                  <Protected>
-                    <MainCmp />
-                  </Protected>
-                } />
-              }
-              <Route path='/signup' element={<SignUp />} />
-            </Routes>
-          }
+          <Routes>
+            <Route path='*' element={<h1>404 not found</h1>} />
+            {isSetLogin ? <Route path='/' element={
+              <Protected>
+                <MainCmp />
+              </Protected>} /> :
+              <Route path='/' element={<Home />} />
+            }
+            <Route path='/signup' element={<SignUp />} />
+          </Routes>
         </BrowserRouter>
       </div>
     </div>
